@@ -45,7 +45,7 @@ export default function Footer() {
           <div className="flex flex-col gap-4">
             <h3 className="text-white font-medium text-sm tracking-wider uppercase">Quick Links</h3>
             <ul className="flex flex-col gap-2.5 text-sm">
-              <li><a href="#about" className="hover:text-amber-500 transition-colors">About Our Studio</a></li>
+              {/* <li><a href="#about" className="hover:text-amber-500 transition-colors">About Our Studio</a></li> */}
               <li><a href="#services" className="hover:text-amber-500 transition-colors">Our Services</a></li>
               <li><a href="#projects" className="hover:text-amber-500 transition-colors">Featured Projects</a></li>
               <li><a href="#process" className="hover:text-amber-500 transition-colors">Our Work Process</a></li>
@@ -59,41 +59,25 @@ export default function Footer() {
             <ul className="flex flex-col gap-3 text-sm">
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-                <span>104 Prestige Skyline, Linking Road, Santacruz West, Mumbai - 400054</span>
+                <span>Plot No. 71, Gali no. 44Chaprauli Banger, Sec-168, Noida, UP -201305</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-amber-500" />
-                <a href="tel:+919876543210" className="hover:text-amber-500 transition-colors">+91 98765 43210</a>
+                <a href="tel:+918595431712" className="hover:text-amber-500 transition-colors">+91 98765 43210</a>
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-amber-500" />
-                <a href="mailto:info@sainterior.in" className="hover:text-amber-500 transition-colors">info@sainterior.in</a>
+                <a href="mailto:sainteriornoida@gmail.com" className="hover:text-amber-500 transition-colors">sainteriornoida@gmail.com</a>
               </li>
             </ul>
           </div>
 
-          {/* Column 4 - Newsletter */}
-          <div className="flex flex-col gap-4">
-            <h3 className="text-white font-medium text-sm tracking-wider uppercase">Newsletter</h3>
-            <p className="text-sm text-zinc-400 leading-relaxed">
-              Subscribe to receive latest design insights, project handovers, and trends.
-            </p>
-            <div className="flex gap-2 mt-2">
-              <Input
-                type="email"
-                placeholder="Your email address"
-                className="bg-zinc-900 border-zinc-800 text-white placeholder-zinc-500 focus-visible:ring-amber-500 text-xs"
-              />
-              <Button size="icon" className="bg-amber-500 hover:bg-amber-600 text-white shrink-0">
-                <ArrowRight className="w-4 h-4" />
-              </Button>
-            </div>
-          </div>
+      
         </div>
 
         {/* Separator / Copyright */}
         <div className="border-t border-zinc-900 pt-8 mt-4 flex flex-col sm:flex-row items-center justify-between text-xs text-zinc-500">
-          <p>© {new Date().getFullYear()} SA Interior (Shreya Associates). All rights reserved.</p>
+          <p>© {new Date().getFullYear()} SA Interior. All rights reserved.</p>
           <div className="flex items-center gap-5 mt-4 sm:mt-0">
             <a href="#" className="hover:text-white">Privacy Policy</a>
             <a href="#" className="hover:text-white">Terms of Service</a>
