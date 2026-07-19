@@ -13,13 +13,13 @@ import {
 
 const navItems = [
   { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "Projects", href: "#projects" },
   { label: "Process", href: "#process" },
   { label: "Why Choose Us", href: "#why-choose" },
 //   { label: "Testimonials", href: "#testimonials" },
 //   { label: "FAQ", href: "#faq" },
+ { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ]
 
@@ -75,21 +75,21 @@ export default function Navbar() {
         </nav>
 
         {/* Actions */}
-        <div className="hidden sm:flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-4">
           {/* Theme Toggle */}
-          {/* <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="rounded-full hover:bg-muted"
-            title="Toggle theme"
-          >
-            {theme === "dark" ? (
-              <Sun className="h-[1.2rem] w-[1.2rem] text-amber-500" />
-            ) : (
-              <Moon className="h-[1.2rem] w-[1.2rem] text-zinc-800" />
-            )}
-          </Button> */}
+           <Button
+    variant="ghost"
+    size="icon"
+    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+    className="rounded-full hover:bg-muted"
+    title="Toggle theme"
+  >
+    {theme === "dark" ? (
+      <Sun className="h-5 w-5 text-amber-500" />
+    ) : (
+      <Moon className="h-5 w-5 text-zinc-800 dark:text-zinc-200" />
+    )}
+  </Button>
 
           <Button  variant="outline" className="border-amber-500/50 hover:border-amber-500 text-foreground">
             <a href="#contact" className="flex items-center gap-2">
@@ -117,40 +117,23 @@ export default function Navbar() {
 
           {/* mobile drawer */}
           <Sheet>
-            <SheetTrigger>
-              <Button variant="ghost" size="icon" className="hover:bg-muted">
-                <Menu className="h-6 w-6" />
-                <span className="sr-only">Toggle Menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] flex flex-col p-6">
-              <SheetTitle className="text-left font-bold tracking-widest text-foreground mb-4">
-                SA <span className="text-amber-500">INTERIOR</span>
-              </SheetTitle>
+  <SheetTrigger
+    render={
+      <Button
+        variant="ghost"
+        size="icon"
+        className="hover:bg-muted"
+      />
+    }
+  >
+    <Menu className="h-6 w-6" />
+    <span className="sr-only">Toggle Menu</span>
+  </SheetTrigger>
 
-              <div className="flex flex-col gap-5 py-6">
-                {navItems.map((item) => (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    className="text-base font-medium text-foreground hover:text-amber-500 transition-colors"
-                  >
-                    {item.label}
-                  </a>
-                ))}
-              </div>
-
-              <div className="mt-auto border-t border-border/40 pt-6 flex flex-col gap-4">
-                <div className="flex items-center gap-3 text-muted-foreground text-xs">
-                  <Sparkles className="w-4 h-4 text-amber-500" />
-                  <span>Custom Luxury Interior Designers</span>
-                </div>
-                <Button className="w-full bg-amber-500 hover:bg-amber-600 text-white">
-                  <a href="#contact">Contact Us</a>
-                </Button>
-              </div>
-            </SheetContent>
-          </Sheet>
+  <SheetContent side="right">
+    {/* Content */}
+  </SheetContent>
+</Sheet>
         </div>
       </div>
     </header>
