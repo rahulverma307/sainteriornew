@@ -2,13 +2,14 @@
 
 import * as React from "react"
 import { useTheme } from "next-themes"
-import { Menu, Sun, Moon, Sparkles, PhoneCall } from "lucide-react"
+import { Menu, Sun, Moon, PhoneCall } from "lucide-react"
+
 import { Button } from "@/components/ui/button"
 import {
   Sheet,
   SheetContent,
-  SheetTrigger,
   SheetTitle,
+  SheetTrigger,
 } from "@/components/ui/sheet"
 
 const navItems = [
@@ -17,9 +18,7 @@ const navItems = [
   { label: "Projects", href: "#projects" },
   { label: "Process", href: "#process" },
   { label: "Why Choose Us", href: "#why-choose" },
-//   { label: "Testimonials", href: "#testimonials" },
-//   { label: "FAQ", href: "#faq" },
- { label: "About", href: "#about" },
+  { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ]
 
@@ -30,10 +29,13 @@ export default function Navbar() {
 
   React.useEffect(() => {
     setMounted(true)
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
     }
+
     window.addEventListener("scroll", handleScroll)
+
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
@@ -43,97 +45,113 @@ export default function Navbar() {
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? "bg-background/85 backdrop-blur-md shadow-sm border-b border-border/40 py-3"
+          ? "bg-background/85 backdrop-blur-md border-b border-border/40 shadow-sm py-3"
           : "bg-transparent py-5"
       }`}
     >
-      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
+      <div className="container mx-auto flex items-center justify-between px-4 md:px-6">
         {/* Logo */}
         <a href="#home" className="flex items-center gap-2 group">
-          <div className="relative flex items-center justify-center w-9 h-9 rounded-lg bg-zinc-950 text-white dark:bg-white dark:text-zinc-950 font-bold text-lg tracking-wider transition-transform group-hover:scale-105">
+          <div className="relative flex h-9 w-9 items-center justify-center rounded-lg bg-zinc-950 font-bold text-lg text-white tracking-wider transition-transform group-hover:scale-105 dark:bg-white dark:text-zinc-950">
             S
-            <span className="text-amber-500 font-extrabold text-sm absolute -bottom-1 -right-1 bg-background rounded-full px-1 border border-border">
+            <span className="absolute -bottom-1 -right-1 rounded-full border border-border bg-background px-1 text-xs font-extrabold text-amber-500">
               A
             </span>
           </div>
-          <span className="font-heading text-lg font-bold tracking-widest text-foreground ml-1">
-            SA <span className="text-amber-500 font-light">INTERIOR</span>
+
+          <span className="ml-1 text-lg font-bold tracking-widest">
+            SA <span className="font-light text-amber-500">INTERIOR</span>
           </span>
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-6">
+        <nav className="hidden items-center gap-6 lg:flex">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="text-sm font-medium text-muted-foreground hover:text-amber-500 transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-amber-500 after:transition-all"
+              className="relative text-sm font-medium text-muted-foreground transition-colors hover:text-amber-500 after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-amber-500 after:transition-all hover:after:w-full"
             >
               {item.label}
             </a>
           ))}
         </nav>
 
-        {/* Actions */}
-        <div className="hidden lg:flex items-center gap-4">
-          {/* Theme Toggle */}
-           <Button
-    variant="ghost"
-    size="icon"
-    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-    className="rounded-full hover:bg-muted"
-    title="Toggle theme"
-  >
-    {theme === "dark" ? (
-      <Sun className="h-5 w-5 text-amber-500" />
-    ) : (
-      <Moon className="h-5 w-5 text-zinc-800 dark:text-zinc-200" />
-    )}
-  </Button>
+        {/* Desktop Actions */}
+        <div className="hidden items-center gap-4 lg:flex">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() =>
+              setTheme(theme === "dark" ? "light" : "dark")
+            }
+            className="rounded-full hover:bg-muted"
+          >
+            {theme === "dark" ? (
+              <Sun className="h-5 w-5 text-amber-500" />
+            ) : (
+              <Moon className="h-5 w-5" />
+            )}
+          </Button>
 
-          <Button  variant="outline" className="border-amber-500/50 hover:border-amber-500 text-foreground">
+          <Button
+            variant="outline"
+            className="border-amber-500/50 hover:border-amber-500"
+          >
             <a href="#contact" className="flex items-center gap-2">
-              <PhoneCall className="w-3.5 h-3.5" />
+              <PhoneCall className="h-4 w-4" />
               Contact Us
             </a>
           </Button>
         </div>
 
-        {/* Mobile Menu & Small Screen actions */}
-        <div className="flex lg:hidden items-center gap-2">
-          {/* Theme Toggle for Mobile */}
+        {/* Mobile Actions */}
+        <div className="flex items-center gap-2 lg:hidden">
           <Button
             variant="ghost"
             size="icon"
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            onClick={() =>
+              setTheme(theme === "dark" ? "light" : "dark")
+            }
             className="rounded-full"
           >
             {theme === "dark" ? (
-              <Sun className="h-[1.1rem] w-[1.1rem] text-amber-500" />
+              <Sun className="h-5 w-5 text-amber-500" />
             ) : (
-              <Moon className="h-[1.1rem] w-[1.1rem] text-zinc-900" />
+              <Moon className="h-5 w-5" />
             )}
           </Button>
 
-          {/* mobile drawer */}
           <Sheet>
-  <SheetTrigger
-    render={
-      <Button
-        variant="ghost"
-        size="icon"
-        className="hover:bg-muted"
-      />
-    }
-  >
-    <Menu className="h-6 w-6" />
-    <span className="sr-only">Toggle Menu</span>
-  </SheetTrigger>
+            <SheetTrigger>
+              <Button variant="ghost" size="icon">
+                <Menu className="h-6 w-6" />
+              </Button>
+            </SheetTrigger>
 
-  <SheetContent side="right">
-    {/* Content */}
-  </SheetContent>
-</Sheet>
+            <SheetContent side="right" className="w-[300px] sm:w-[350px]">
+              <SheetTitle className="mb-8 text-left text-xl font-bold">
+                SA <span className="text-amber-500">INTERIOR</span>
+              </SheetTitle>
+
+              <nav className="flex flex-col gap-5">
+                {navItems.map((item) => (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    className="border-b border-border pb-3 text-base font-medium transition-colors hover:text-amber-500"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+
+                <Button className="mt-6 w-full bg-amber-500 text-black hover:bg-amber-400">
+                  <PhoneCall className="mr-2 h-4 w-4" />
+                  Contact Us
+                </Button>
+              </nav>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </header>
