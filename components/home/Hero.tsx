@@ -7,10 +7,11 @@ import { Button } from "@/components/ui/button"
 
 const slides = [
   {
-    image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=80",
-    title: "Luxury Redefined",
+    // image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=80",
+    image: "/images/ShreeKama1.jpeg",
+    title: "Luxury Cloth Store",
     subtitle: "Exquisite Custom Interiors",
-    description: "We craft sophisticated spaces that mirror your unique style and elevate daily living to a high-end luxury experience.",
+    description: "We craft sophisticated spaces that mirror your cloth store unique style and elevate daily living to a high-end luxury experience.",
   },
   {
     image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",

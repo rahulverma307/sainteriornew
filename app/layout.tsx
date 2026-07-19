@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SA Interior | Premium Residential & Commercial Interior Design Mumbai",
-  description: "SA Interior (Shreya Associates) is a luxury interior design and decoration studio specialized in styling living spaces, modular kitchens, and premium boutiques.",
+  title: "SA Interior | Premium Residential & Commercial Interior Design Delhi NCR",
+  description: "SA Interior is a luxury interior design and decoration studio specialized in styling living spaces, modular kitchens, and premium boutiques.",
 };
 
 export default function RootLayout({
