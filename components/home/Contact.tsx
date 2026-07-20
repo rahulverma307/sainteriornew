@@ -74,7 +74,7 @@ export default function Contact() {
                     +91 8595431712
                   </a>
                   <a href="tel:+91223456789" className="text-zinc-600 dark:text-zinc-400 hover:text-amber-500 text-sm block">
-                    +91 9667249979
+                    {/* +91 9667249979 */}
                   </a>
                 </div>
               </div>
